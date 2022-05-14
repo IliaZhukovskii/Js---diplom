@@ -1,37 +1,49 @@
 'use strict';
 
-import {
-  animateOpen
-} from './helpers';
-
 let modal = () => {
   //Получение элементов со страницы
-  let modal = document.querySelector('.popup');
-  let buttons = document.querySelectorAll('.popup-btn');
-  let modalContent = modal.querySelector('.popup-content');
-  let mediaQuery = window.matchMedia('(min-width: 768px)');
-  
+  let modal = document.querySelector('.modal-callback');
+  let modalOverlay = document.querySelector('.modal-overlay');
+  let buttonsOpen = document.querySelectorAll('.callback-btn');
+  let buttonsClose = document.querySelector('.modal-close');
+  let buttonServices = document.querySelector('.button-services');
+
+
 
   //Открытие модального окна
-  for (let btn of buttons) {
-    btn.addEventListener('click', () => {
-      modal.style.display = 'block';
-      if (mediaQuery.matches) {
-        animateOpen(modalContent);
-      }
-    });
-  }
+  const openModal = () => {
+    modal.style.display = 'block';
+    modalOverlay.style.display = 'block';
+  };
 
   //Закрытие модального окна
   const closeModal = () => {
     modal.style.display = 'none';
+    modalOverlay.style.display = 'none';
   };
 
-  //Закрытие по кнопке и клику вне окна
-  modal.addEventListener('click', (e) => {
-    if (e.target.classList.contains('popup') || e.target.classList.contains('popup-close')) {
+  //Открытие модального окна
+  for (let i of buttonsOpen) {
+    i.addEventListener('click', () => {
+      openModal();
+    });
+  }
+
+  buttonServices.addEventListener('click', () => {
+    openModal();
+  });
+
+
+  //Закрытие по клику вне окна
+  document.addEventListener('click', (e) => {
+    if (e.target.classList.contains('modal-overlay') || e.target.classList.contains('modal-close')) {
       closeModal();
     }
+  });
+
+  //Закрытие по кнопке вне окна
+  buttonsClose.addEventListener('click', () => {
+    closeModal();
   });
 
   //Закрытие по кнопке Escape
