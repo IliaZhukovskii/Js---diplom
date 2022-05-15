@@ -1222,6 +1222,9 @@ video#video_background {
 	color: #2fab6d;
 }
 
+.upTop{
+	display: none;
+}
 .up {
 	position: fixed;
 	bottom: 50px;
@@ -1234,6 +1237,7 @@ video#video_background {
 	cursor: pointer;
 	background-color: rgba(0, 0, 0, 0.6);
 }
+
 
 @media only screen and (min-width: 992px) {
 	.services-elements > .row > hr:nth-of-type(2n) {

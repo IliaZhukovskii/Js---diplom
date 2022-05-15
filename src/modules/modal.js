@@ -7,7 +7,7 @@ let modal = () => {
   let buttonsOpen = document.querySelectorAll('.callback-btn');
   let buttonsClose = document.querySelector('.modal-close');
   let buttonServices = document.querySelector('.button-services');
-
+  let formElements = modal.querySelectorAll('input');
 
 
   //Открытие модального окна
@@ -20,6 +20,12 @@ let modal = () => {
   const closeModal = () => {
     modal.style.display = 'none';
     modalOverlay.style.display = 'none';
+    //Очистка полей
+    formElements.forEach(input => {
+      if (input.type !== 'submit') {
+        input.value = '';
+      }
+    });
   };
 
   //Открытие модального окна

@@ -31,7 +31,7 @@
 		<span class="mobile-menu-close close"></span>
 		<a href="#callback" class="callback-btn fancyboxModal hidden-sm"><i class="fa fa-phone"></i> Заказать звонок</a>
 		<div class="push20"></div>
-		<ul id="menu">
+		<ul>
 			<li><a href="#services">Цены на услуги</a></li>
 			<li><a href="#faq">Ответы на вопросы</a></li>
 			<li><a href="#contacts">Контакты</a></li>
@@ -44,7 +44,7 @@
 
 	<div class="main-wrapper">
 		<!-- * * * * * * Header * * * * * * -->
-		<div class="header-wrapper">
+		<div id="top" class="header-wrapper">
 			<div class="header-panel">
 				<div class="container">
 					<div class="shedule left hidden-xs">
@@ -628,7 +628,7 @@
 		<div class="rf">
 			<form action="" name="form-callback">
 				<div class="form-group">
-					<input type="text" name="fio" class="form-control" placeholder="Ваше имя" />
+					<input type="text" name="fio" class="form-control fio" placeholder="Ваше имя" />
 				</div>
 
 				<div class="form-group">
@@ -651,7 +651,7 @@
 		<div class="rf">
 			<form action="" name="form-feedback">
 				<div class="form-group">
-					<input type="text" name="fio" class="form-control" placeholder="Ваше имя" />
+					<input type="text" name="fio" class="form-control fio" placeholder="Ваше имя" />
 				</div>
 
 				<div class="form-group">
@@ -682,10 +682,10 @@
 					<input type="text" name="service_name" id="applicationInput" class="form-control" readonly="readonly" />
 				</div>
 				<div class="form-group">
-					<input name="fio" type="text" class="form-control required" placeholder="Ваше имя *" />
+					<input name="fio" type="text" class="form-control required fio" placeholder="Ваше имя *" />
 				</div>
 				<div class="form-group">
-					<input name="tel" type="text" class="form-control required tel" placeholder="Ваш  телефон *" />
+					<input name="tel" type="text" class="form-control required tel" placeholder="Ваш телефон *" />
 				</div>
 				<p><span class="red">*</span> <span class="f12">- поля, обязательные для заполнения</span></p>
 				<div>
@@ -708,7 +708,7 @@
 
 
 	<!-- * * * * * * button to top * * * * * * -->
-	<a href="#menu" class="up">
+	<a href="#top" class="upTop">
 		<img src="images/32_chevron_up.svg" alt="up" class="up">
 	</a>
 
@@ -720,7 +720,7 @@
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 
-	<script src="./main.js"></script>
+	<script src="main.js"></script>
 
 </body>
 
