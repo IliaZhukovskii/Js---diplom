@@ -27,6 +27,7 @@ let link = () => {
       up.style.display = 'none';
     }
   };
+  //Плавный скролл
   let  backToTop = () => {
     if (window.pageYOffset > 0) {
       window.scrollBy(0, -80);

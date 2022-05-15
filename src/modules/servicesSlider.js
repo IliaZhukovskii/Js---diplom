@@ -5,17 +5,24 @@ const servicesSlider = () => {
   //Получение переменных
   let servicesArrow = document.querySelector('.services-arrow');
   let servicesCarousel = document.querySelector('.services-carousel');
-  let prev = document.querySelector('.arrow-left');
-  let next = document.querySelector('.arrow-right');
-  let slides = document.querySelectorAll('.col-sm-6 > .element');
-  
-  servicesArrow.addEventListener('click', (e) =>{
-    if(e.target.classList.contains('arrow-left')){
-      servicesCarousel.style.marginLeft = 600 + 'px';
-    }
-    
-  });
+  let position = 0;
 
+  servicesArrow.addEventListener('click', (e) => {
+    //В право
+    if (e.target.matches('.arrow-right')) {
+      if (position == 0) {
+        servicesCarousel.style.marginLeft = -1200 + 'px';
+        position = -1200;
+      }
+    }
+    //В лево
+    if (e.target.matches('.arrow-left')) {
+      if (position == -1200) {
+        servicesCarousel.style.marginLeft = 0 + 'px';
+        position = 0;
+      }
+    }
+  });
 };
 
 

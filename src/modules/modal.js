@@ -9,7 +9,7 @@ let modal = () => {
   let buttonServices = document.querySelector('.button-services');
   let formElements = modal.querySelectorAll('input');
 
-
+ 
   //Открытие модального окна
   const openModal = () => {
     modal.style.display = 'block';
@@ -58,6 +58,14 @@ let modal = () => {
       closeModal();
     }
   });
+
+  //Открытие модального окна из слайдера services
+  let openModalsBtn = document.querySelectorAll('.services-item > .element > .img-wrapper');
+  for(let i of openModalsBtn){
+    i.addEventListener('click', ()=>{
+       openModal();
+    });
+  }
 };
 
 export default modal;

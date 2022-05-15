@@ -17,7 +17,7 @@ const accordeon = () => {
           if (!tab.classList.contains('active')) {
             elementContent[index].style.display = 'none';
           }
-        //Закрытие остальных
+          //Закрытие остальных
         } else {
           tab.classList.remove('active');
           elementContent[index].style.display = 'none';

@@ -718,6 +718,10 @@ hr.white {
 	.icons .img-wrapper img {
 		width: 140px;
 	}
+	.services-elements{
+		width: 800px;
+		margin: 0 auto;
+	}
 }
 @media only screen and (max-width: 991px) {
 	.icons .img-wrapper img {
@@ -725,6 +729,9 @@ hr.white {
 	}
 	.slick-dots {
 		padding-top: 30px;
+	}
+	.services-elements{
+		width: 400px;
 	}
 }
 @media only screen and (max-width: 767px) {
@@ -1071,13 +1078,19 @@ video#video_background {
 
 /**** services section *****/
 
+.services-elements{
+overflow: hidden;
+}
 .services-carousel{
-	display: inline;
-	height: 260px;
+	height: 460px;
+	width: 9999px;
+	margin-left: 0px;
+	transition: margin-left 250ms;
 }
 
-.col-sm-6 .element{
+.services-item{
 	display: inline-block;
+	width: 400px;
 }
 
 .services-arrow {
@@ -1133,6 +1146,8 @@ video#video_background {
 	-o-transition: all 200ms ease-out;
 	transition: all 200ms ease-out;
 }
+
+
 .services-section .element:hover .img-wrapper:after {
 	opacity: 1;
 }
@@ -1150,13 +1165,14 @@ video#video_background {
 	-o-transition: all 200ms ease-out;
 	transition: all 200ms ease-out;
 	margin-top: -24px;
-	z-index: 2;
+	z-index: 100;
 	opacity: 0;
 	color: #fff;
 	padding: 10px 0;
 	text-align: center;
 	text-transform: uppercase;
 	border: 2px solid #fff;
+	cursor: pointer;
 }
 .services-section .element:hover .img-wrapper:before {
 	opacity: 1;
