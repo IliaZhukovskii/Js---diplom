@@ -89,7 +89,16 @@ const sendForm = ({
 
     form.addEventListener('submit', (e) => {
       e.preventDefault();
-      submitForm();
+      //Проверка на обязательные поля
+      if(phone.value.length == 0){
+        phone.classList.add('error');
+      }else{
+        submitForm();
+        if(phone.classList.contains('error')){
+          phone.classList.remove('error');
+        }
+      }
+      
     });
 
   } catch (error) {
