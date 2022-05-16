@@ -9,11 +9,11 @@ const sendForm = ({
   let errorText = 'Ошибка...';
   let successText = 'Спасибо! Отправлено';
 
+
   //Функция на проверку валидности полей формы
   const validate = () => {
     let success = true;
-    let phoneLength = form.tel.value.length;
-    if (phoneLength < 7) {
+    if (phone.value.length < 7 || name.value.length < 2) {
       success = false;
     }
     return success;
@@ -89,16 +89,23 @@ const sendForm = ({
 
     form.addEventListener('submit', (e) => {
       e.preventDefault();
-      //Проверка на обязательные поля
-      if(phone.value.length == 0){
+      //Проверка на пустые поля
+      if (phone.value.length == 0) {
         phone.classList.add('error');
-      }else{
+      } else {
         submitForm();
-        if(phone.classList.contains('error')){
+        if (phone.classList.contains('error')) {
           phone.classList.remove('error');
         }
       }
-      
+      if (name.value.length == 0) {
+        name.classList.add('error');
+      } else {
+        submitForm();
+        if (name.classList.contains('error')) {
+          name.classList.remove('error');
+        }
+      }
     });
 
   } catch (error) {
@@ -110,6 +117,9 @@ const sendForm = ({
   for (let i of formElements) {
     if (i.matches('.tel')) {
       i.addEventListener('input', () => {
+        if (phone.value.length > 0) {
+          phone.classList.remove('error');
+        }
         if (phone.value.length < 7) {
           let phoneError = document.querySelector('.phoneError');
           if (phoneError) {
@@ -124,20 +134,22 @@ const sendForm = ({
         }
       });
     } else if (i.matches('.fio')) {
-      i.addEventListener('click', () => {
-        let nameError = document.querySelector('.nameError');
-            if (nameError) {
-              nameError.remove();
-            }
-            name.insertAdjacentHTML('afterEnd', '<label for="fio" class="nameError" style="color:red; font-size: 15px;">Только кириллица</label>');
-        i.addEventListener('input', () => {
-          if (name.value.length > 1) {
-            let nameError = document.querySelector('.nameError');
-            if (nameError) {
-              nameError.remove();
-            }
+      i.addEventListener('input', () => {
+        if (name.value.length > 0) {
+          name.classList.remove('error');
+        }
+        if (name.value.length < 2) {
+          let nameErrorLength = document.querySelector('.nameErrorLength');
+          if (nameErrorLength) {
+            nameErrorLength.remove();
           }
-        });
+          name.insertAdjacentHTML('afterEnd', '<label for="tel" class="nameErrorLength" style="color:red; font-size: 15px;">Не менее 2 символов</label>');
+        } else if (name.value.length >= 2) {
+          let nameErrorLength = document.querySelector('.nameErrorLength');
+          if (nameErrorLength) {
+            nameErrorLength.remove();
+          }
+        }
       });
     }
   }

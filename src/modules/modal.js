@@ -8,8 +8,9 @@ let modal = () => {
   let buttonsClose = document.querySelector('.modal-close');
   let buttonServices = document.querySelector('.button-services');
   let formElements = modal.querySelectorAll('input');
+  
 
- 
+
   //Открытие модального окна
   const openModal = () => {
     modal.style.display = 'block';
@@ -20,12 +21,25 @@ let modal = () => {
   const closeModal = () => {
     modal.style.display = 'none';
     modalOverlay.style.display = 'none';
-    //Очистка полей
+    
     formElements.forEach(input => {
+      //Очистка полей при закрытии
       if (input.type !== 'submit') {
         input.value = '';
       }
+      //Удаление ошибок ввода при закрытии
+      if (input.classList.contains('error')) {
+        input.classList.remove('error');
+      }
     });
+
+    //Удаление ошибок ввода при закрытии
+    let labels = modal.querySelectorAll('label');
+    if(labels){
+      for(let label of labels){
+        label.remove();
+      }
+    }
   };
 
   //Открытие модального окна
@@ -61,9 +75,9 @@ let modal = () => {
 
   //Открытие модального окна из слайдера services
   let openModalsBtn = document.querySelectorAll('.services-item > .element > .img-wrapper');
-  for(let i of openModalsBtn){
-    i.addEventListener('click', ()=>{
-       openModal();
+  for (let i of openModalsBtn) {
+    i.addEventListener('click', () => {
+      openModal();
     });
   }
 };
