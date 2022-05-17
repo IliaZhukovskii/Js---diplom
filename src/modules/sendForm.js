@@ -93,7 +93,6 @@ const sendForm = ({
       if (phone.value.length == 0) {
         phone.classList.add('error');
       } else {
-        submitForm();
         if (phone.classList.contains('error')) {
           phone.classList.remove('error');
         }
@@ -101,10 +100,13 @@ const sendForm = ({
       if (name.value.length == 0) {
         name.classList.add('error');
       } else {
-        submitForm();
+        
         if (name.classList.contains('error')) {
           name.classList.remove('error');
         }
+      }
+      if(phone.value.length >= 7 && name.value.length >=2){
+        submitForm();
       }
     });
 
